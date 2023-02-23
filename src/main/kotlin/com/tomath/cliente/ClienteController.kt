@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/clientes")
-class ClientesResource(private val clientes: ClienteRepositorio) {
+class ClienteController(private val clientes: ClienteRepository) {
     @GetMapping
     fun listar(): List<Cliente?> {
         return clientes.findAll()
