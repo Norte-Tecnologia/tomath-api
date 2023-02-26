@@ -3,9 +3,10 @@ package com.tomath.questao
 import java.io.Serializable
 
 data class QuestaoDto(
-    val materia: String
+    val titulo: String,
+    val descricao: String
 ) : Serializable
 
 fun Questao.toQuestaoDto() = QuestaoDto(
-    materia
+    titulo, descricao
 )
