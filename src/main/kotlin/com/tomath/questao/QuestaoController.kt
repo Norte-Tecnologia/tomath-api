@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 internal class QuestaoController(private val questaoService: QuestaoService) {
 
     @GetMapping
-    fun listarQuestoes(): List<Questao> {
-        return questaoService.listarQuestoes()
+    fun listarQuestoes(): List<QuestaoDto> {
+        return questaoService.listarQuestoes().map { it.toQuestaoDto() }
     }
 }
