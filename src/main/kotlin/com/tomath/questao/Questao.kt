@@ -1,5 +1,6 @@
 package com.tomath.questao
 
+import com.tomath.materia.Materia
 import jakarta.persistence.*
 
 @Entity
@@ -15,4 +16,8 @@ class Questao(
     @Column(nullable = false, columnDefinition = "TEXT")
     val descricao: String = "",
 
-)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "materia_id", nullable = false)
+    val subject: Materia = Materia(),
+
+    )
