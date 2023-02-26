@@ -1,6 +1,7 @@
 package com.tomath.questao
 
 import com.tomath.materia.Materia
+import com.tomath.alternativa.Alternativa
 import jakarta.persistence.*
 
 @Entity
@@ -18,6 +19,12 @@ class Questao(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "materia_id", nullable = false)
-    val subject: Materia = Materia(),
+    val materia: Materia = Materia(),
 
-    )
+    @OneToMany(mappedBy = "questao", cascade = [CascadeType.ALL], orphanRemoval = true)
+    val alternativas: MutableList<Alternativa> = mutableListOf(),
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "correct_option_id", nullable = false)
+    val respostaCorreta: Alternativa = Alternativa()
+)
