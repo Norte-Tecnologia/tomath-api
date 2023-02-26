@@ -9,6 +9,7 @@ import java.io.Serializable;
  */
 public class QuestaoDto implements Serializable {
     private String enunciado;
+    private String linkDeApoio;
     private MateriaDto materia;
     private String assunto;
     private String respostaCorreta;
@@ -19,6 +20,14 @@ public class QuestaoDto implements Serializable {
 
     public void setEnunciado(String enunciado) {
         this.enunciado = enunciado;
+    }
+
+    public String getLinkDeApoio() {
+        return linkDeApoio;
+    }
+
+    public void setLinkDeApoio(String linkDeApoio) {
+        this.linkDeApoio = linkDeApoio;
     }
 
     public MateriaDto getMateria() {
