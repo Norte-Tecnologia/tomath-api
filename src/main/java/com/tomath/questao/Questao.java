@@ -8,11 +8,17 @@ public class Questao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String titulo;
-
     @Column(nullable = false, columnDefinition = "TEXT")
-    private String descricao;
+    private String enunciado;
+
+    @Column(nullable = false)
+    private String materia;
+
+    @Column(nullable = false)
+    private String assunto;
+
+    @Column(nullable = false)
+    private String respostaCorreta;
 
     public Long getId() {
         return id;
@@ -22,19 +28,35 @@ public class Questao {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getEnunciado() {
+        return enunciado;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setEnunciado(String enunciado) {
+        this.enunciado = enunciado;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getMateria() {
+        return materia;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setMateria(String materia) {
+        this.materia = materia;
+    }
+
+    public String getAssunto() {
+        return assunto;
+    }
+
+    public void setAssunto(String assunto) {
+        this.assunto = assunto;
+    }
+
+    public String getRespostaCorreta() {
+        return respostaCorreta;
+    }
+
+    public void setRespostaCorreta(String respostaCorreta) {
+        this.respostaCorreta = respostaCorreta;
     }
 }
