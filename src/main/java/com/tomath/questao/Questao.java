@@ -1,5 +1,7 @@
 package com.tomath.questao;
 
+import com.tomath.materia.Materia;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,8 +13,9 @@ public class Questao {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String enunciado;
 
-    @Column(nullable = false)
-    private String materia;
+    @ManyToOne(fetch = FetchType.LAZY , cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "materia_id", nullable = false)
+    private Materia materia;
 
     @Column(nullable = false)
     private String assunto;
@@ -36,11 +39,11 @@ public class Questao {
         this.enunciado = enunciado;
     }
 
-    public String getMateria() {
+    public Materia getMateria() {
         return materia;
     }
 
-    public void setMateria(String materia) {
+    public void setMateria(Materia materia) {
         this.materia = materia;
     }
 
