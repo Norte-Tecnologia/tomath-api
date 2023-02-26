@@ -1,9 +1,11 @@
 package com.tomath.questao;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/questao")
@@ -16,13 +18,15 @@ public class QuestaoController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Questao> listarQuestoes(){
-        return questaoService.listarQuestoes();
+    public List<QuestaoDto> listarQuestoes() {
+        return questaoService.listarQuestoes().stream()
+                .map(questao -> new ModelMapper().map(questao, QuestaoDto.class))
+                .collect(Collectors.toList());
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Long criarQuestao(@RequestBody Questao questao){
-        return questaoService.salvarQuestao(questao);
+    public Long criarQuestao(@RequestBody QuestaoDto questaoDto) {
+        return questaoService.salvarQuestao(new ModelMapper().map(questaoDto, Questao.class));
     }
 }
