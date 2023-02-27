@@ -1,6 +1,7 @@
 package com.tomath.questao;
 
 import com.tomath.assunto.AssuntoDto;
+import com.tomath.dificuldade.DificuldadeDto;
 import com.tomath.materia.MateriaDto;
 
 import java.io.Serializable;
@@ -14,6 +15,7 @@ public class QuestaoDto implements Serializable {
     private MateriaDto materia;
     private AssuntoDto assunto;
     private String respostaCorreta;
+    private DificuldadeDto dificuldade;
 
     public String getEnunciado() {
         return enunciado;
@@ -53,5 +55,13 @@ public class QuestaoDto implements Serializable {
 
     public void setRespostaCorreta(String respostaCorreta) {
         this.respostaCorreta = respostaCorreta;
+    }
+
+    public DificuldadeDto getDificuldade() {
+        return dificuldade;
+    }
+
+    public void setDificuldade(DificuldadeDto dificuldade) {
+        this.dificuldade = dificuldade;
     }
 }

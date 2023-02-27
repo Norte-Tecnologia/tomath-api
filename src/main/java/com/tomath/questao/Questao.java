@@ -1,6 +1,7 @@
 package com.tomath.questao;
 
 import com.tomath.assunto.Assunto;
+import com.tomath.dificuldade.Dificuldade;
 import com.tomath.materia.Materia;
 
 import javax.persistence.*;
@@ -24,6 +25,10 @@ public class Questao {
     @ManyToOne(fetch = FetchType.LAZY , cascade = CascadeType.PERSIST)
     @JoinColumn(name = "assunto_id", nullable = false)
     private Assunto assunto;
+
+    @ManyToOne(fetch = FetchType.LAZY , cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "dificuldade_id", nullable = false)
+    private Dificuldade dificuldade;
 
     @Column(nullable = false)
     private String respostaCorreta;
@@ -66,6 +71,14 @@ public class Questao {
 
     public void setAssunto(Assunto assunto) {
         this.assunto = assunto;
+    }
+
+    public Dificuldade getDificuldade() {
+        return dificuldade;
+    }
+
+    public void setDificuldade(Dificuldade dificuldade) {
+        this.dificuldade = dificuldade;
     }
 
     public String getRespostaCorreta() {
