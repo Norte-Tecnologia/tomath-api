@@ -1,5 +1,6 @@
 package com.tomath.questao;
 
+import com.tomath.assunto.Assunto;
 import com.tomath.materia.Materia;
 
 import javax.persistence.*;
@@ -20,8 +21,9 @@ public class Questao {
     @JoinColumn(name = "materia_id", nullable = false)
     private Materia materia;
 
-    @Column(nullable = false)
-    private String assunto;
+    @ManyToOne(fetch = FetchType.LAZY , cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "assunto_id", nullable = false)
+    private Assunto assunto;
 
     @Column(nullable = false)
     private String respostaCorreta;
@@ -58,11 +60,11 @@ public class Questao {
         this.materia = materia;
     }
 
-    public String getAssunto() {
+    public Assunto getAssunto() {
         return assunto;
     }
 
-    public void setAssunto(String assunto) {
+    public void setAssunto(Assunto assunto) {
         this.assunto = assunto;
     }
 

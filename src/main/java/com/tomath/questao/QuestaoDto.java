@@ -1,5 +1,6 @@
 package com.tomath.questao;
 
+import com.tomath.assunto.AssuntoDto;
 import com.tomath.materia.MateriaDto;
 
 import java.io.Serializable;
@@ -11,7 +12,7 @@ public class QuestaoDto implements Serializable {
     private String enunciado;
     private String linkDeApoio;
     private MateriaDto materia;
-    private String assunto;
+    private AssuntoDto assunto;
     private String respostaCorreta;
 
     public String getEnunciado() {
@@ -38,11 +39,11 @@ public class QuestaoDto implements Serializable {
         this.materia = materia;
     }
 
-    public String getAssunto() {
+    public AssuntoDto getAssunto() {
         return assunto;
     }
 
-    public void setAssunto(String assunto) {
+    public void setAssunto(AssuntoDto assunto) {
         this.assunto = assunto;
     }
 
