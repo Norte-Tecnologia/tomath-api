@@ -18,6 +18,7 @@ public class QuestaoController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
     public List<QuestaoDto> listarQuestoes() {
         return questaoService.listarQuestoes().stream()
                 .map(questao -> new ModelMapper().map(questao, QuestaoDto.class))
@@ -26,6 +27,7 @@ public class QuestaoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
     public Long criarQuestao(@RequestBody QuestaoDto questaoDto) {
         return questaoService.salvarQuestao(new ModelMapper().map(questaoDto, Questao.class));
     }
